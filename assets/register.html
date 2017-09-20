@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:100px">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // orientationchange 事件 用来监听手机屏幕的反转
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth; //(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+        
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        .header,
+        .container {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        
+        .header {
+            height: 0.88rem;
+            line-height: 0.88rem;
+            text-align: center;
+            background: #0dc441;
+            font-size: 0.32rem;
+            color: white;
+        }
+        
+        .header {
+            top: 0px;
+        }
+        
+        .container {
+            top: 0.88rem;
+        }
+        
+        .container input {
+            border: none;
+            width: 5.80rem;
+            height: 0.69rem;
+            text-align: left;
+            font-size: 0.28rem;
+            margin-left: 0.3rem;
+            margin-top: 0.3rem;
+            border-bottom: 2px solid#7f7f7f;
+            opacity: 0.5;
+        }
+        
+        .container button {
+            border: none;
+            width: 5.80rem;
+            height: 0.9rem;
+            background: #0dc441;
+            font-size: 0.32rem;
+            color: white;
+            margin-left: 0.3rem;
+            margin-top: 0.6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">足球圈 —— 注册</header>
+    <section class="container">
+        <form action="">
+            <input type="text" placeholder="手机号" class="phone">
+            <input type="password" placeholder="密码" class="pwd">
+            <input type="text" placeholder="昵称" class="nike">
+            <button class="btn">提  &nbsp;    交</button>
+    </section>
+
+</body>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script>
+    $(function() {
+        var phone = $(".phone"),
+            pwd = $(".pwd"),
+            name = $(".nike")
+
+        $(".phone").on("blur", function() {
+            console.log(phone.val())
+            if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone.val()))) {
+                alert("手机号码有误，请重填");
+                return
+            }
+
+        })
+
+        $(".btn").on('click', function(event) {
+            event.preventDefault();
+
+
+
+            var params = {};
+            params.phone = phone.val().trim();
+            params.pwd = pwd.val().trim();
+            params.name = name.val().trim();
+
+            if (!params.name || !params.pwd) {
+                alert("用户名密码不能为空！");
+                return
+            };
+            if (!params.phone) {
+                alert("请输入电话号码！");
+                return
+            };
+
+
+
+            $.post('/api/register', params, function(res) {
+                console.log(res);
+
+                location.href = "login.html"
+            })
+
+        });
+
+    })
+</script>
+
+</html>

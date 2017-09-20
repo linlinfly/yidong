@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:100px;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../font/iconfont.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // orientationchange 事件 用来监听手机屏幕的反转
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth; //(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+
+    <body>
+        <header>
+            <p><span class="redian">热点 </span><span class="guanzhu">关注</span>
+            </p>
+        </header>
+
+
+        <container class="container">
+            <li>
+                <img src="../img/05search_03.gif " class="use ">
+                <p class="name ">我是小萌</p>
+                <p class="num "><span>3843224</span><img src="../img/zan.gif "></p>
+                <span class="msg ">我是小萌我怕蛇！哈哈哈</span>
+                <img src="../img/04index_02.gif " class="main ">
+                <p class="sug ">小丸子啊小丸子</p>
+
+            </li>
+
+        </container>
+
+
+
+        <footer>
+            <ul>
+                <a href="index11.html">
+                    <li class="sy"><i class="iconfont icon-shouye "></i><span>首页</span></li>
+                </a>
+                <a href="search.html">
+                    <li><i class="iconfont icon-faxian "></i><span>发现</span></li>
+                </a>
+                <li><span></span></li>
+
+                <a href="user.html">
+                    <li><i class="iconfont icon-wode "></i><span>我的</span></li>
+                </a>
+                <a href="login.html">
+                    <li><i class="iconfont icon-tuichu "></i><span>退出</span></li>
+                </a>
+            </ul>
+            <i class="xiangji "></i>
+        </footer>
+    </body>
+
+
+
+
+
+
+</html>

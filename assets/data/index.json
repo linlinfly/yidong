@@ -1,0 +1,6 @@
+{
+    "error": 0,
+    "message": "ok",
+    "list": [{ "imgSrc": "../img/pic1.gif", "description": "小丸子啊小丸子", "gener": 0 }, { "imgSrc": "../img/pic1.gif", "description": "小丸子啊小丸子", "gener": 0 }, { "imgSrc": "../img/3.png", "description": "朋友啊你在哪", "gener": 0 }, { "imgSrc": "../img/2.png", "description": "快出来啊", "gener": 0 }]
+
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:100px">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="css/swiper-3.4.1.min.css">
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // orientationchange 事件 用来监听手机屏幕的反转
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth; //(window.innerWidth);UC 或者QQ 安卓4.0 以下原生浏览器下面是没有
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            //DOMContentLoaded dom 加载完成，onload 有什么区别 dom css js OK 才执行的
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-size: 16px;
+            overflow: hidden;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            height: 0.88rem;
+            line-height: 0.88rem;
+            text-align: center;
+            background: #0dc441;
+            font-size: 0.32rem;
+            color: white;
+        }
+        
+        .container {
+            flex: 1;
+        }
+        
+        .container .main {
+            border-top: 5px solid #f1f1f1;
+        }
+        
+        .container .main li {
+            height: 1.5rem;
+            position: relative;
+        }
+        
+        .container .main li img {
+            height: 0.94rem;
+            width: 0.94rem;
+            margin-top: 0.3rem;
+            margin-left: 0.2rem;
+            display: inline-block;
+        }
+        
+        .container .main li p {
+            display: inline-block;
+            position: absolute;
+            top: 0.3rem;
+            left: 1.3rem;
+        }
+        
+        .container .main li button {
+            display: inline-block;
+            position: absolute;
+            border: none;
+            background: #0dc441;
+            top: 0.3rem;
+            right: 0.3rem;
+            width: 0.7rem;
+            height: 0.38rem;
+        }
+        
+        .container .main li span {
+            display: inline-block;
+            position: absolute;
+            bottom: 0.3rem;
+            opacity: 0.5;
+            font-size: 13px;
+            left: 1.3rem;
+        }
+        
+        .pagination3 {
+            height: 0.72rem;
+            width: 6.4rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #e1e8e1;
+        }
+        
+        .pagination3 span {
+            height: 0.72rem;
+            width: 1rem;
+            width: 33%;
+            display: flex;
+            font-size: 0.3rem;
+            align-items: center;
+            background: white;
+            text-align: center;
+            justify-content: center;
+            border: none;
+            opacity: 0.7;
+            border-radius: 0;
+        }
+        
+        .pagination3 .choose {
+            color: #0ec044;
+            border-bottom: 2px solid #0ec044;
+        }
+        
+        .swiper-slide img {
+            width: 50%
+        }
+        /* .swiper-slide {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .swiper-container {
+            height: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <header class="header">个人中心</header>
+    <section class="container">
+        <!-- <form action="">
+            <input type="text" placeholder="请输入昵称" class="nike">
+            <button class="btn">搜索</button>
+        </form> -->
+        <div class="main">
+            <li><img src="../img/05search_03.gif">
+                <p>我是小萌</p> <button>关注</button>
+                <span>我是小萌我怕蛇！哈哈哈</span>
+
+            </li>
+
+
+        </div>
+        <div class="pagination3"></div>
+        <div class="swiper-container swiper-use">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/06user_02.gif"></div>
+                <div class="swiper-slide"><img src="img/2.png"></div>
+                <div class="swiper-slide"><img src="img/3.png"></div>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <ul>
+            <a href="index11.html">
+                <li><i class="iconfont icon-shouye "></i><span>首页</span></li>
+            </a>
+            <a href="search.html">
+                <li><i class="iconfont icon-faxian "></i><span>发现</span></li>
+            </a>
+            <li><span></span></li>
+
+            <a href="user.html">
+                <li class="user"><i class="iconfont icon-wode "></i><span>我的</span></li>
+            </a>
+            <a href="login.html">
+                <li><i class="iconfont icon-tuichu "></i><span>退出</span></li>
+            </a>
+        </ul>
+        <i class="xiangji "></i>
+    </footer>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
+<script>
+    var mySwiper = new Swiper(".swiper-container", {
+
+        pagination: '.pagination3',
+        paginationClickable: true,
+
+        paginationBulletRender: function(swiper, index, className) {
+            var arr = ["照片", "关注", "粉丝"]
+            return '<span class="' + className + '">' + arr[index] + '</span>';
+        },
+        onSlideChangeEnd(swiper) {
+            console.log(swiper.activeIndex) //当前滑到哪个的索引值
+            $(".pagination3 span").eq(swiper.activeIndex).addClass("choose").siblings().removeClass("choose");
+        },
+
+    })
+</script>
+
+</html>
